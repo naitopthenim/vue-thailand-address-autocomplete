@@ -9,6 +9,18 @@
         autocomplete="disabled"
         ref="input"
         class="vth-addr-input"
+        :class="{
+          'vth-addr-input-size-small': size === 'small',
+          'vth-addr-input-size-default': size === 'default',
+          'vth-addr-input-size-medium': size === 'medium',
+          'vth-addr-input-size-large': size === 'large',
+        }"
+        :style="{
+          border:
+            hasFocus && currentColor !== '#f5f5f5'
+              ? 'solid 1px ' + currentColor
+              : 'solid 1px #d3d3d3',
+        }"
         @focus="hasFocus = true"
         @blur="hasFocus = false"
         @keydown.up="pressArrow('up')"
